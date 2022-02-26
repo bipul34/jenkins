@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        
+        stage('Build VM') {
+            steps {
+                ansiblePlaybook extras: '-T 30', playbook: '/tmp/vm.yml'
+            }
+        }
+        
+        
+        stage('Ansible') {
+            steps {
+                ansiblePlaybook extras: '-T 30', playbook: '/tmp/bipul.yml'
+            }
+        }
+    
+
+    }
+}
+
+
+    
