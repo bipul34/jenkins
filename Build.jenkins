@@ -5,14 +5,14 @@ pipeline {
         
         stage('Build VM') {
             steps {
-                ansiblePlaybook extras: '-T 30', playbook: '/tmp/vm.yml'
+                ansiblePlaybook extras: '-T 30', playbook: '/bitnami/jenkins/home/workspace/From-Git_main/vm.yml'
             }
         }
         
         
         stage('Ansible') {
             steps {
-                ansiblePlaybook extras: '-T 30', playbook: '/tmp/bipul.yml'
+                ansiblePlaybook extras: '-T 30', playbook: '/bitnami/jenkins/home/workspace/From-Git_main/bipul.yml'
             }
         }
     
