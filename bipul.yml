@@ -1,0 +1,9 @@
+---
+- hosts: 192.168.100.138
+  gather_facts: false
+
+  tasks:
+  - name: create a file
+    copy:
+            content: ""
+            dest: /tmp/bipul.txt
