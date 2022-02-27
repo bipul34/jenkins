@@ -13,7 +13,7 @@ pipeline {
                        FILE = 'sec.txt'
                        }
             steps {
-                sh "echo '$VAULT_CREDS' > sec.txt"
+                sh "echo '$VAULT_CREDS'"
                 ansiblePlaybook extras: '-T 30 --vault-password-file sec.txt', playbook: 'vm.yml'
             }
         }
