@@ -13,7 +13,7 @@ pipeline {
                        FILE = 'sec.txt'
                        }
             steps {
-                sh "touch /var/git/sec.txt"
+                sh "sudo touch /var/git/sec.txt"
                 ansiblePlaybook extras: '-T 30 --vault-password-file sec.txt', playbook: 'vm.yml'
             }
         }
