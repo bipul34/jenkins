@@ -8,12 +8,8 @@ pipeline {
     stages {
         
         stage('Build VM') {
-            environment {
-                       VAULT_CREDS =  credentials('VAULT_ID')
-                       }
             steps {
-                sh "echo '$VAULT_CREDS'" > sec.txt 
-                ansiblePlaybook extras: '-T 30', '--vault-password-file sec.txt', playbook: '/bitnami/jenkins/home/workspace/From-Git_main/vm.yml'
+                ansiblePlaybook extras: '-T 30', playbook: '/bitnami/jenkins/home/workspace/From-Git_main/vm.yml'
             }
         }
         

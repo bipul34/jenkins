@@ -1,14 +1,15 @@
 ---
 - hosts: localhost
   gather_facts: false
-
+  vars_files:
+          - vault.yml
 
   tasks:
   - name : Create a Vm clone
     vmware_guest:
       hostname: 192.168.100.53
-      username: administrator@vsphere.local
-      password: Neo233@ba
+      username: "{{ username }}"
+      password: "{{ password }}"
       validate_certs: no
       datacenter: BLR
       state: poweredon
