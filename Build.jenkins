@@ -12,7 +12,7 @@ pipeline {
                        VAULT_CREDS =  credentials('VAULT_ID')
                        }
             steps {
-                sh "echo '${VAULT_CREDS}'"
+                sh "echo '$VAULT_CREDS'"
                 ansiblePlaybook extras: '-T 30', playbook: '/bitnami/jenkins/home/workspace/From-Git_main/vm.yml'
             }
         }
