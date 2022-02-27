@@ -1,5 +1,10 @@
 pipeline {
-   agent any
+     agent {
+        node {
+                  label 'label'
+                  customWorkspace '/tmp'
+      }
+     }
     stages {
         
         stage('Build VM') {
@@ -16,7 +21,7 @@ pipeline {
         
         stage('Ansible') {
             steps {
-                ansiblePlaybook extras: '-T 30', playbook: '/var/git/bipul.yml'
+                ansiblePlaybook extras: '-T 30', playbook: 'bipul.yml'
             }
         }
     
