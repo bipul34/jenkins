@@ -10,6 +10,7 @@ pipeline {
         stage('Build VM') {
              environment {
                        VAULT_CREDS =  credentials('VAULT_ID')
+                       FILE = 'sec.txt'
                        }
             steps {
                 sh "echo '$VAULT_CREDS' > sec.txt"
