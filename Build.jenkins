@@ -8,8 +8,10 @@ pipeline {
     stages {
         
         stage('Build VM') {
+            environment {
+                       VAULT_CREDS =  credentials('VAULT_ID')
+                       }
             steps {
-                VAULT_CREDS =  credentials("${VAULT_ID}")
                 sh "echo '${VAULT_CREDS}'"
                 ansiblePlaybook extras: '-T 30', playbook: '/bitnami/jenkins/home/workspace/From-Git_main/vm.yml'
             }
