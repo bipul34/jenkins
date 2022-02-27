@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-       node {
-                  label 'my-defined-label'
-                  customWorkspace '/var/git'
-      }
-    }
+    agent any
 
     stages {
         
@@ -24,6 +19,5 @@ pipeline {
 
     }
 }
-
 
     
