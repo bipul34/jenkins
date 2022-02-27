@@ -12,7 +12,7 @@ pipeline {
                        VAULT_CREDS =  credentials('VAULT_ID')
                        }
             steps {
-                sh "echo '$VAULT_CREDS' > sec.txt"
+                sh "echo '$VAULT_CREDS' > /var/git/sec.txt"
                 ansiblePlaybook extras: '-T 30 --vault-password-file sec.txt', playbook: '/var/git/vm.yml'
             }
         }
